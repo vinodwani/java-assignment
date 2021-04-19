@@ -1,0 +1,9 @@
+package pkg1;
+
+import java.util.Scanner;
+
+interface ShapeInterface
+{
+    // public and abstract 
+    void display();
+}

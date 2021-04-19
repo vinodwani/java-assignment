@@ -1,0 +1,13 @@
+Welcome User 2021-04-19T12:23:58.398787400
+ 
+User selected option 3 
+User entered first number 6 
+User entered second number 4 
+-------------- Division of numbers is 6 / 4 = 1 
+ --------------Welcome User 2021-04-19T12:28:49.634096800
+ 
+----- User selected option Multiplication -------- 
+ User entered number 3 
+User entered number 4 
+User entered number 5 
+-------------- The multiplication of the numbers is 60 -------------- 

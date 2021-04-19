@@ -1,0 +1,28 @@
+package pkg1;
+
+import java.util.Scanner;
+
+abstract class Shape {  
+	abstract void draw();  
+}  
+//In real scenario, implementation is provided by others i.e. unknown by end user  
+class Rectangle extends Shape 
+{  
+	void draw() {
+		System.out.println("drawing rectangle");
+	}  
+}  
+class Circle extends Shape 
+{  
+	int option, shape, radius;
+	double pi = 3.14, area;
+	void draw() 
+	{
+		Scanner s1 = new Scanner(System.in);
+		System.out.println("Enter the radius :");
+		radius = s1.nextInt();
+		area = pi * radius * radius;
+        System.out.println("Area of circle:"+area);
+	}  
+}  
+  

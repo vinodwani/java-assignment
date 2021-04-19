@@ -1,0 +1,7 @@
+package pkg1;
+
+interface ShapeInterface
+{
+    // public and abstract 
+    void display();
+}

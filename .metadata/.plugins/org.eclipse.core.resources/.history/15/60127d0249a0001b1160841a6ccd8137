@@ -1,0 +1,90 @@
+package pkg1;
+
+import java.util.Scanner;
+
+interface ExampleInterface
+{
+    // public and abstract 
+    void display();
+}
+
+public class ExampleClass implements exampleInterface {
+
+	public static void main(String[] args) 
+	{
+		ExampleClass t = new ExampleClass();
+        t.display();
+	}
+	
+	public void display()
+	{
+		int option, sum=0, num1, num2, shape, radius, multiplication = 1;
+		double pi = 3.14, area;
+		
+		// TODO Auto-generated method stub
+		Scanner s1 = new Scanner(System.in);
+		System.out.println("Please provide the input in numeric format: ");
+		option  = s1.nextInt();
+		
+		switch (option) {
+			case 1:
+				System.out.print("Enter a series of values: ");
+				Scanner input = new Scanner(System.in);
+				String line;
+	            while (!(line = input.nextLine()).isEmpty()) {
+	                sum = sum + Integer.parseInt(line);
+	            }
+
+                System.out.println("The sum of the numbers is " + sum);
+				break;
+			case 2:
+				System.out.println("Input first number :");
+				num1 = s1.nextInt();
+				System.out.println("Input second number :");
+				num2 = s1.nextInt();
+				
+				System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
+				break;
+			case 3:
+				System.out.println("Input first number :");
+				num1 = s1.nextInt();
+				System.out.println("Input second number :");
+				num2 = s1.nextInt();
+				
+				System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
+				
+				break;
+			case 4:
+				System.out.print("Enter a series of values: ");
+				Scanner scObj = new Scanner(System.in);
+				String strLine;
+	            while (!(strLine = scObj.nextLine()).isEmpty()) {
+	            	multiplication = multiplication * Integer.parseInt(strLine);
+	            }
+
+                System.out.println("The multiplication of the numbers is " + multiplication);
+				break;
+			case 5:
+				System.out.println("Please Enter the Shape 1 for Circle and 2 for Rectangle:");
+				shape = s1.nextInt();
+				
+				if (shape == 1) {
+					System.out.println("Enter the radius :");
+					radius = s1.nextInt();
+					area = pi * radius * radius;
+			        System.out.println("Area of circle:"+area);
+				} else {
+				   System.out.println("Enter the length of Rectangle:");
+				   double length = s1.nextDouble();
+				   System.out.println("Enter the width of Rectangle:");
+				   double width = s1.nextDouble();
+				   
+				   area = length*width;
+				   System.out.println("Area of Rectangle is:"+area);
+				}				
+				break;
+							
+		}
+		s1.close();
+	}
+}

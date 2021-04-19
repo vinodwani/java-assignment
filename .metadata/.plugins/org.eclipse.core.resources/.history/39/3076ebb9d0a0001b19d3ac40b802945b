@@ -1,0 +1,10 @@
+package pkg1;
+
+interface ShapeInterface
+{
+    // public and abstract 
+    Integer add();    
+    Integer substract();
+    Integer multiply();
+    Integer division();
+}

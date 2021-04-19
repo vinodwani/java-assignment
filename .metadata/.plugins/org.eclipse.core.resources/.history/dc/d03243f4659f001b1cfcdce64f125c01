@@ -1,0 +1,21 @@
+package pkg1;
+
+
+
+public class Class1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//System.out.println("Hello world");
+		String data = "helllo";
+		//System.out.println(data.startsWith("h"));
+		String str1 = "ABCDE";
+		String temp = "";
+		for (int i = 0;i<str1.length(); i++) {
+			temp = str1.charAt(i) + temp;			
+		}
+		System.out.println(temp);
+	}
+	
+	
+}

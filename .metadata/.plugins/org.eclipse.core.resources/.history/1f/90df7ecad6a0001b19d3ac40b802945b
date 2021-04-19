@@ -1,0 +1,173 @@
+package pkg1;
+
+import java.util.Scanner;
+import java.util.InputMismatchException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+
+public class AssessmentClass implements ShapeInterface 
+{
+
+	public static void main(String[] args) 
+	{
+		AssessmentClass t = new AssessmentClass();
+        t.display();
+	}
+	
+	public void display()
+	{
+		try {
+			int option, shape;
+				
+			String greet = "Welcome User "+ LocalDateTime.now()+"\n";
+			System.out.println(greet);
+			
+			// TODO Auto-generated method stub
+			Scanner s1 = new Scanner(System.in);
+			System.out.println("Please provide the input in numeric format: "+ "\n"
+					+ "1) Addition" + "\n"
+					+ "2) Substraction" + "\n"
+					+ "3) Division" + "\n"
+					+ "4) Multiplication" + "\n"
+					+ "5) Shape ( 1. Circle 2. Rectangle )");
+			
+			option  = s1.nextInt();
+			
+			//bw.write("User selected option "+ option);
+			
+			switch (option) {
+				case 1:
+					this.add();
+					break;
+				case 2:
+					this.substract();
+					break;
+				case 3:
+					this.division();
+					break;
+				case 4:
+					this.multiply();
+					break;
+				case 5:
+					System.out.println("Please Enter the Shape 1 for Circle and 2 for Rectangle:");
+					shape = s1.nextInt();
+					
+					if (shape == 1) {
+						Shape s = new Circle();  
+						s.draw(); 
+					} else {
+						Shape s = new Rectangle();  
+						s.draw();				   
+					}				
+					break;
+								
+			}
+			s1.close();
+			
+	    	
+
+			System.out.println("Data successfully appended at the end of file");
+			
+		} catch(InputMismatchException e) {
+			System.out.print("Invalid number entered. ");
+		} catch(IOException ioe){
+         System.out.println("Exception occurred:");
+    	 ioe.printStackTrace();
+       }		
+	}
+	
+	/**
+	 * Function used for adding multiple numbers
+	 */
+	public void add()
+	{
+		int sum=0;
+		System.out.print("Enter a series of values: ");
+		Scanner input = new Scanner(System.in);
+		String line;
+        while (!(line = input.nextLine()).isEmpty()) {
+            sum = sum + Integer.parseInt(line);            
+        }
+
+        System.out.println("The sum of the numbers is " + sum);
+        input.close();
+	}
+	
+	/**
+	 * Function used for subtraction
+	 */
+	public void substract()
+	{
+		int num1, num2;
+		Scanner s1 = new Scanner(System.in);
+		System.out.println("Input first number :");
+		num1 = s1.nextInt();
+		System.out.println("Input second number :");
+		num2 = s1.nextInt();
+		
+		System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
+		s1.close();
+	}
+	
+	/**
+	 * Function used for multiplication
+	 */
+	public void multiply()
+	{
+		int multiplication = 1;
+		System.out.print("Enter a series of values: ");
+		Scanner scObj = new Scanner(System.in);
+		String strLine;
+        while (!(strLine = scObj.nextLine()).isEmpty()) {
+        	multiplication = multiplication * Integer.parseInt(strLine);
+        }
+
+        System.out.println("The multiplication of the numbers is " + multiplication);
+        scObj.close();
+	}
+	
+	/**
+	 * Function used for division
+	 */
+	public void division()
+	{
+		int num1, num2;
+		Scanner s1 = new Scanner(System.in);
+		System.out.println("Input first number :");
+		num1 = s1.nextInt();
+		System.out.println("Input second number :");
+		num2 = s1.nextInt();
+		System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
+		s1.close();
+	}
+	
+	public void writetoFile(String input)
+	{
+		try {
+			//Specify the file name and path here
+	    	File file =new File("C://Users/VEDIKA/eclipse-workspace/myfile.txt");
+
+	    	/* This logic is to create the file if the
+	    	 * file is not already present
+	    	 */
+	    	if (!file.exists()) {
+	    	   file.createNewFile();
+	    	}
+	    	
+	    	//Here true is to append the content to file
+	    	FileWriter fw = new FileWriter(file,true);
+	    	//BufferedWriter writer give better performance
+	    	BufferedWriter bw = new BufferedWriter(fw);
+	    	
+	    	bw.write(input);
+	    	//Closing BufferedWriter Stream
+	    	bw.close();
+		} catch (IOException ioe) {
+			System.out.println("Exception occurred:");
+	    	ioe.printStackTrace();
+		}		
+	}
+}
